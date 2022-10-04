@@ -1,0 +1,22 @@
+name: push
+
+jobs:
+  test-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Log DockerHub
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        with:
+          username: ${{ secrets.DOCKERHUB_NAME }}
+          password: ${{ secrets.DOCKERHUB_PASS }}
+
+      - name: Run tests
+        run: make ci
+
+      - name: Build image
+        run: make compose-build
+
+      - name: push image
+        run: make docker-push

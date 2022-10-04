@@ -1,12 +1,11 @@
-version: '3.7'
+version: "3.7"
  
 services:
   app:
+    image: "karshak06/devops-for-programmers-project-74"
     build:
       context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
+      dockerfile: Dockerfile.production
     volumes:
       - "./app:/app"
     command: bash -c "npm ci"

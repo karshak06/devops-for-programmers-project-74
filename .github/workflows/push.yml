@@ -16,7 +16,7 @@ jobs:
         run: make ci
 
       - name: Build image
-        run: make compose-build
+        run: make build
 
       - name: push image
-        run: make docker-push
+        run: make push

@@ -20,6 +20,3 @@ jobs:
 
       - name: push image
         run: make push
-
-      - name: push image
-        run: make push
